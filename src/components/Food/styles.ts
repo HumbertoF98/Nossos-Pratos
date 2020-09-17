@@ -1,12 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-interface IFoodPlateProps {
-  available: boolean;
-}
-
-export const Container = styled.div<IFoodPlateProps>`
+export const Container = styled.div`
   background: #f0f0f5;
   border-radius: 8px;
+  width: 600px;
 
   header {
     background: #ffb84d;
@@ -16,15 +13,9 @@ export const Container = styled.div<IFoodPlateProps>`
     transition: 0.3s opacity;
     text-align: center;
 
-    ${(props) =>
-      !props.available &&
-      css`
-        opacity: 0.3;
-      `};
-
     img {
-      pointer-events: none;
       user-select: none;
+      cursor: pointer;
     }
   }
 
@@ -39,17 +30,6 @@ export const Container = styled.div<IFoodPlateProps>`
       color: #3d3d4d;
 
       margin-top: 16px;
-    }
-
-    .price {
-      font-style: normal;
-      font-size: 24px;
-      line-height: 34px;
-      color: #39b100;
-
-      b {
-        font-weight: 600;
-      }
     }
   }
 

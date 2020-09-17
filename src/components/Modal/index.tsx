@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import ReactModal from 'react-modal';
+import ReactModal from "react-modal";
 
 interface IFoodPlate {
   id: number;
   name: string;
-  image: string;
-  price: string;
+  url_photo: string;
   description: string;
-  available: boolean;
 }
 
 interface IModalProps {
@@ -32,20 +30,20 @@ const Modal: React.FC<IModalProps> = ({ children, isOpen, setIsOpen }) => {
       ariaHideApp={false}
       style={{
         content: {
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-          background: '#F0F0F5',
-          color: '#000000',
-          borderRadius: '8px',
-          width: '736px',
-          border: 'none',
+          top: "50%",
+          left: "50%",
+          right: "auto",
+          bottom: "auto",
+          marginRight: "-50%",
+          transform: "translate(-50%, -50%)",
+          background: "#F0F0F5",
+          color: "#000000",
+          borderRadius: "8px",
+          width: "736px",
+          border: "none",
         },
         overlay: {
-          backgroundColor: '#121214e6',
+          backgroundColor: "#121214e6",
         },
       }}
     >
