@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { FiPlusSquare } from 'react-icons/fi';
-import { Container } from './styles';
+import { FiPlusSquare } from "react-icons/fi";
+import { Container } from "./styles";
 
-import Logo from '../../assets/logo.svg';
+import Logo from "../../assets/logo.svg";
 
 interface IHeaderProps {
   openModal: () => void;
@@ -21,7 +21,7 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => (
               openModal();
             }}
           >
-            <div className="text">Novo Prato</div>
+            <div className="text">Nova Receita</div>
             <div className="icon">
               <FiPlusSquare size={24} />
             </div>
