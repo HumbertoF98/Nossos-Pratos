@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 interface IFoodPlateProps {
   available: boolean;
@@ -16,7 +16,7 @@ export const Container = styled.div<IFoodPlateProps>`
     transition: 0.3s opacity;
     text-align: center;
 
-    ${props =>
+    ${(props) =>
       !props.available &&
       css`
         opacity: 0.3;
@@ -64,9 +64,17 @@ export const Container = styled.div<IFoodPlateProps>`
 
     div.icon-container {
       display: flex;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        color: #c72828;
+        margin-left: 10px;
+      }
 
       button {
-        background: #fff;
+        background: #e4e4eb;
         padding: 10px;
         border-radius: 8px;
         display: flex;
@@ -74,7 +82,7 @@ export const Container = styled.div<IFoodPlateProps>`
         transition: 0.1s;
 
         svg {
-          color: #3d3d4d;
+          color: #c72828;
         }
 
         & + button {
@@ -118,7 +126,7 @@ export const Container = styled.div<IFoodPlateProps>`
 
           &:before {
             position: absolute;
-            content: '';
+            content: "";
             height: 20px;
             width: 40px;
             left: 8px;

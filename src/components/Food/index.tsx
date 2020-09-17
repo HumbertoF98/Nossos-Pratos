@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { FiEdit3, FiTrash } from "react-icons/fi";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
-import api from '../../services/api';
+import api from "../../services/api";
 
 interface IFoodPlate {
   id: number;
@@ -55,14 +55,14 @@ const Food: React.FC<IProps> = ({
       </section>
       <section className="footer">
         <div className="icon-container">
-          <button
+          {/*  <button
             type="button"
             className="icon"
             onClick={() => setEditingFood()}
             data-testid={`edit-food-${food.id}`}
           >
             <FiEdit3 size={20} />
-          </button>
+          </button> */}
 
           <button
             type="button"
@@ -72,10 +72,11 @@ const Food: React.FC<IProps> = ({
           >
             <FiTrash size={20} />
           </button>
+          <h3>Deletar</h3>
         </div>
 
-        <div className="availability-container">
-          <p>{isAvailable ? 'Disponível' : 'Indisponível'}</p>
+        {/*  <div className="availability-container">
+          <p>{isAvailable ? "Disponível" : "Indisponível"}</p>
 
           <label htmlFor={`available-switch-${food.id}`} className="switch">
             <input
@@ -87,7 +88,7 @@ const Food: React.FC<IProps> = ({
             />
             <span className="slider" />
           </label>
-        </div>
+        </div> */}
       </section>
     </Container>
   );

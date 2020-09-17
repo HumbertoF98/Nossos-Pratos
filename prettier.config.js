@@ -1,5 +1,6 @@
-module.exports = {
-  singleQuote: true,
-  trailingComma: "all",
-  arrowParens: "avoid",
-};
+trailingComma: 'none'
+tabWidth: 2
+semi: false
+singleQuote: true
+jsxSingleQuote: true
+arrowParens: 'always'
