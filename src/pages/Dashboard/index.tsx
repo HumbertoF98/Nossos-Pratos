@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
-import Header from '../../components/Header';
+import Header from "../../components/Header";
 
-import api from '../../services/api';
+import api from "../../services/api";
 
-import Food from '../../components/Food';
-import ModalAddFood from '../../components/ModalAddFood';
-import ModalEditFood from '../../components/ModalEditFood';
+import Food from "../../components/Food";
+import ModalAddFood from "../../components/ModalAddFood";
+import ModalFood from "../../components/ModalFood";
 
-import { FoodsContainer } from './styles';
+import { FoodsContainer } from "./styles";
 
 interface IFoodPlate {
   id: number;
@@ -28,7 +28,7 @@ const Dashboard: React.FC = () => {
   useEffect(() => {
     async function loadFoods(): Promise<void> {
       try {
-        const { data } = await api.get('/foods');
+        const { data } = await api.get("/foods");
 
         setFoods(data);
       } catch (error) {
@@ -40,10 +40,10 @@ const Dashboard: React.FC = () => {
   }, []);
 
   async function handleAddFood(
-    food: Omit<IFoodPlate, 'id' | 'available'>,
+    food: Omit<IFoodPlate, "id" | "available">
   ): Promise<void> {
     try {
-      const { data } = await api.post('/foods', { ...food, available: true });
+      const { data } = await api.post("/foods", { ...food, available: true });
 
       setModalOpen(!modalOpen);
       setFoods([...foods, data]);
@@ -53,7 +53,7 @@ const Dashboard: React.FC = () => {
   }
 
   async function handleUpdateFood(
-    food: Omit<IFoodPlate, 'id' | 'available'>,
+    food: Omit<IFoodPlate, "id" | "available">
   ): Promise<void> {
     try {
       const { data } = await api.put(`/foods/${editingFood.id}`, {
@@ -62,9 +62,9 @@ const Dashboard: React.FC = () => {
       });
 
       setFoods(
-        foods.map(foodEdit =>
-          foodEdit.id === editingFood.id ? data : foodEdit,
-        ),
+        foods.map((foodEdit) =>
+          foodEdit.id === editingFood.id ? data : foodEdit
+        )
       );
 
       setEditingFood({} as IFoodPlate);
@@ -77,7 +77,7 @@ const Dashboard: React.FC = () => {
     try {
       await api.delete(`/foods/${id}`);
 
-      setFoods(foods.filter(food => food.id !== id));
+      setFoods(foods.filter((food) => food.id !== id));
     } catch (error) {
       console.log(error);
     }
@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
         setIsOpen={toggleModal}
         handleAddFood={handleAddFood}
       />
-      <ModalEditFood
+      <ModalFood
         isOpen={editModalOpen}
         setIsOpen={toggleEditModal}
         editingFood={editingFood}
@@ -113,7 +113,7 @@ const Dashboard: React.FC = () => {
 
       <FoodsContainer data-testid="foods-list">
         {foods &&
-          foods.map(food => (
+          foods.map((food) => (
             <Food
               key={food.id}
               food={food}
