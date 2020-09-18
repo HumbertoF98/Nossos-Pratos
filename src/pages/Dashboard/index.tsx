@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "../../components/Header";
 
@@ -25,8 +27,8 @@ const Dashboard: React.FC = () => {
       try {
         const { data } = await api.get("/revenues");
         setFoods(data);
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        toast.error(err.response.data.message);
       }
     }
     loadFoods();
@@ -43,7 +45,7 @@ const Dashboard: React.FC = () => {
       setModalOpen(!modalOpen);
       setFoods([...foods, data]);
     } catch (err) {
-      console.log(err);
+      toast.error(err.response.data.message);
     }
   }
 
@@ -51,8 +53,8 @@ const Dashboard: React.FC = () => {
     try {
       await api.delete(`/revenues/${id}`);
       setFoods(foods.filter((food) => food.id !== id));
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      toast.error(err.response.data.message);
     }
   }
 

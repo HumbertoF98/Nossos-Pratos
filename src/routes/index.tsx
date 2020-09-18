@@ -1,13 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import { Switch, Route } from 'react-router-dom';
+import { Route, BrowserRouter } from "react-router-dom";
 
-import Dashboard from '../pages/Dashboard';
+import SignIn from "../pages/SignIn";
+import Dashboard from "../pages/Dashboard";
 
 const Routes: React.FC = () => (
-  <Switch>
-    <Route path="/" exact component={Dashboard} />
-  </Switch>
+  <BrowserRouter>
+    <Route path="/" component={SignIn} exact />
+    <Route path="/inicio" component={Dashboard} />
+  </BrowserRouter>
 );
 
 export default Routes;
