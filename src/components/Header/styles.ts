@@ -4,6 +4,13 @@ export const Container = styled.div`
   background: #c72828;
   padding: 30px 0;
 
+  h4 {
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: right;
+    cursor: pointer;
+  }
+
   header {
     width: 1280px;
     margin: 0 auto;

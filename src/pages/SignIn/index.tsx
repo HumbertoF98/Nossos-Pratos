@@ -22,18 +22,22 @@ const SignIn: React.FC = () => {
   async function handleSubmit(
     sign: Omit<ISignIn, "created_at" | "updated_at">
   ): Promise<void> {
-    try {
-      setLoading(true);
-      const response = await api.post("/sessions", {
-        ...sign,
-      });
-      localStorage.setItem("userToken", response.data.token);
-      setLoading(false);
-      history.push("/inicio");
-    } catch (err) {
-      toast.error(err.response.data.message);
-      setLoading(false);
-      localStorage.clear();
+    if (!sign.email || !sign.password) {
+      toast.error("Preencha todos os campos para entrar!");
+    } else {
+      try {
+        setLoading(true);
+        const response = await api.post("/sessions", {
+          ...sign,
+        });
+        localStorage.setItem("userToken", response.data.token);
+        setLoading(false);
+        history.push("/inicio");
+      } catch (err) {
+        toast.error(err.response.data.message);
+        setLoading(false);
+        localStorage.clear();
+      }
     }
   }
 
