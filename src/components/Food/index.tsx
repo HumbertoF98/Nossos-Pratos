@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { FiTrash } from "react-icons/fi";
 
 import { Container } from "./styles";
+
+import ModalView from "../../components/ModalView";
 
 interface IFoodPlate {
   id: number;
@@ -14,27 +16,23 @@ interface IFoodPlate {
 interface IProps {
   food: IFoodPlate;
   handleDelete: (id: number) => {};
-  handleEditFood: (food: IFoodPlate) => void;
 }
 
-const Food: React.FC<IProps> = ({
-  food,
-  handleDelete,
-  handleEditFood,
-}: IProps) => {
-  function setEditingFood(food: any) {
-    handleEditFood(food);
+const Food: React.FC<IProps> = ({ food, handleDelete }: IProps) => {
+  const [viewModalOpen, setViewModalOpen] = useState(false);
+
+  function toggleModalView(): void {
+    setViewModalOpen(!viewModalOpen);
   }
 
   return (
     <Container>
       <header>
-        <img
-          onClick={() => setEditingFood(food)}
-          src={food.url_photo}
-          alt={food.name}
-        />
+        <img onClick={toggleModalView} src={food.url_photo} alt={food.name} />
       </header>
+      <ModalView isOpen={viewModalOpen} setIsOpen={toggleModalView}>
+        {food}
+      </ModalView>
       <section className="body">
         <h2>{food.name}</h2>
         <p>{food.description}</p>

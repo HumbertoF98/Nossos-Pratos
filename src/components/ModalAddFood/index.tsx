@@ -11,7 +11,6 @@ interface IFoodPlate {
   name: string;
   url_photo: string;
   description: string;
-  available: boolean;
 }
 
 interface ICreateFoodData {
@@ -43,12 +42,12 @@ const ModalAddFood: React.FC<IModalProps> = ({
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form ref={formRef} onSubmit={handleSubmit}>
-        <h1>Novo Prato</h1>
+        <h1>Nova Receita</h1>
         <Input name="url_photo" placeholder="URL da foto da receita" />
-        <Input name="name" placeholder="Nome do prato" />
+        <Input name="name" placeholder="Nome da receita" />
         <Input name="description" placeholder="Descrição" />
         <button type="submit" data-testid="add-food-button">
-          <p className="text">Adicionar Prato</p>
+          <p className="text">Adicionar Receita</p>
           <div className="icon">
             <FiCheckSquare size={24} />
           </div>

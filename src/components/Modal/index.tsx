@@ -2,13 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import ReactModal from "react-modal";
 
-interface IFoodPlate {
-  id: number;
-  name: string;
-  url_photo: string;
-  description: string;
-}
-
 interface IModalProps {
   children: any;
   isOpen: boolean;
