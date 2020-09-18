@@ -16,6 +16,7 @@ export const Container = styled.div`
     img {
       user-select: none;
       width: 100%;
+      object-fit: cover;
       cursor: pointer;
       background-size: cover;
     }

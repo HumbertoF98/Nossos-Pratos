@@ -18,6 +18,7 @@ export const Container = styled.div`
     align-self: flex-start;
     width: 100%;
     height: 300px;
+    object-fit: cover;
     border-radius: 5px;
   }
 `;
