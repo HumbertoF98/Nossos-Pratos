@@ -3,7 +3,7 @@ import React from "react";
 import { FiPlusSquare } from "react-icons/fi";
 import { Container } from "./styles";
 
-import Logo from "../../assets/ourRevenues.png";
+import Logo from "../../assets/nossosPratos.png";
 
 interface IHeaderProps {
   openModal: () => void;
@@ -21,7 +21,7 @@ const Header: React.FC<IHeaderProps> = ({ openModal }) => (
               openModal();
             }}
           >
-            <div className="text">Nova Receita</div>
+            <div className="text">Novo Prato</div>
             <div className="icon">
               <FiPlusSquare size={24} />
             </div>

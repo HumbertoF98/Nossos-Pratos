@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background: #ca6048;
+  background: #c72828;
   padding: 30px 0;
 
   header {
@@ -11,6 +11,10 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    img {
+      width: 200px;
+    }
 
     nav {
       div {

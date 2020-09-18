@@ -1,13 +1,7 @@
 import React from "react";
 import Modal from "../Modal";
-import Input from "../Input";
 
-interface IFoodPlate {
-  id: number;
-  name: string;
-  url_photo: string;
-  description: string;
-}
+import { Container } from "./styles";
 
 interface IModalProps {
   isOpen: boolean;
@@ -16,9 +10,17 @@ interface IModalProps {
 
 const ModalView: React.FC<IModalProps> = ({ isOpen, setIsOpen, children }) => {
   console.log(children);
+  const { url_photo } = children as any;
+  const { name } = children as any;
+  const { description } = children as any;
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <h1>hello</h1>
+      <Container>
+        <h2>{name}</h2>
+        <img src={url_photo} />
+        <p>{description}</p>
+      </Container>
     </Modal>
   );
 };
