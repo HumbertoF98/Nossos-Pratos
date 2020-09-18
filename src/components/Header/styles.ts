@@ -31,6 +31,7 @@ export const Container = styled.div`
           border: 0;
           background: #39b100;
           color: #fff;
+          cursor: pointer;
 
           display: flex;
           flex-direction: row;

@@ -5,10 +5,6 @@ import SignUp from "../pages/SignUp";
 import Dashboard from "../pages/Dashboard";
 
 function Routes(): any {
-  /*  const token = localStorage.getItem("userToken");
-  if (!token) {
-    return <Redirect to="/" />;
-  } */
   return (
     <BrowserRouter>
       <Route path="/" component={SignIn} exact />
