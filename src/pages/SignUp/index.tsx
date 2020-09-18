@@ -9,7 +9,7 @@ import logo from "../../assets/nossosPratos.png";
 import Input from "../../components/Input";
 import api from "../../services/api";
 
-interface ISignIn {
+interface ISignUp {
   email: string;
   password: string;
 }
@@ -20,16 +20,15 @@ const SignIn: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(
-    sign: Omit<ISignIn, "created_at" | "updated_at">
+    sign: Omit<ISignUp, "created_at" | "updated_at">
   ): Promise<void> {
     try {
       setLoading(true);
-      const response = await api.post("/sessions", {
+      await api.post("/users", {
         ...sign,
       });
-      localStorage.setItem("userToken", response.data.token);
-      setLoading(false);
-      history.push("/inicio");
+      toast.success("Cadastro realizado com sucesso!");
+      history.push("/");
     } catch (err) {
       toast.error(err.response.data.message);
       setLoading(false);
@@ -44,14 +43,11 @@ const SignIn: React.FC = () => {
         <Input name="email" placeholder="Seu e-mail" />
         <Input type="password" name="password" placeholder="Sua senha" />
         <button type="submit" data-testid="add-food-button">
-          <p className="text">{loading ? "Carregando..." : "Fazer login"}</p>
+          <p className="text">{loading ? "Carregando..." : "Cadastrar"}</p>
         </button>
       </Form>
-      <h4
-        onClick={() => history.push("/registro")}
-        onKeyDown={() => history.push("/registro")}
-      >
-        Cadastre-se
+      <h4 onClick={() => history.push("/")} onKeyDown={() => history.push("/")}>
+        Faça o login
       </h4>
     </Container>
   );

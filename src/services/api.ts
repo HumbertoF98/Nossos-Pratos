@@ -12,9 +12,9 @@ Here the Axios interceptors were used,
    and if it exists, it adds the Authorization Header to the request.
  */
 api.interceptors.request.use(async (config) => {
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MDAzNzc1ODgsImV4cCI6MTYwMDYzNjc4OCwic3ViIjoiZWQxZTJiNmEtOGFhMC00MWU1LTk5NzEtMDAyMDdiOGFjMWJmIn0.d1pvuWNkyhICcHLOyKIZAJSt1cj3apfbCx6PdRXQZRQ";
+  const token = localStorage.getItem("userToken");
   if (token) {
+    // eslint-disable-next-line no-param-reassign
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;

@@ -4,12 +4,12 @@ import React, {
   useRef,
   useState,
   useCallback,
-} from 'react';
+} from "react";
 
-import { IconBaseProps } from 'react-icons';
-import { useField } from '@unform/core';
+import { IconBaseProps } from "react-icons";
+import { useField } from "@unform/core";
 
-import { Container } from './styles';
+import { Container } from "./styles";
 
 interface IInputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
@@ -38,7 +38,7 @@ const Input: React.FC<IInputProps> = ({ name, icon: Icon, ...rest }) => {
     registerField({
       name: fieldName,
       ref: inputRef.current,
-      path: 'value',
+      path: "value",
     });
   }, [fieldName, registerField]);
 
