@@ -1,7 +1,6 @@
 # Desafio Ruptiva - Code Challenge FullStack
 
 <h1 align="center">
-    <img alt="Navita" src="src/assets/car.png" height="100px" />
     <br/>
    <a href="https://pt-br.reactjs.org/docs/getting-started.html" target="_blank" rel="noopener">ReactJS</a>
 </h1>
